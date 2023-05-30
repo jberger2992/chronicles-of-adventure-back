@@ -1,26 +1,26 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Info extends Model {}
+class AdventureStep extends Model {}
 
-Info.init(
+AdventureStep.init(
     {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        type: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        desription: {
+        text: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
+        isFirstStep: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+        option: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
     },
     {
         sequelize,
     }
 );
 
-module.exports = Info;
+module.exports = AdventureStep;
