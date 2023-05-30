@@ -1,15 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Info extends Model {}
+class Character extends Model {}
 
-Info.init(
+Character.init(
     {
         name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        type: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -17,10 +13,19 @@ Info.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
+        characteristics: {
+            type: DataTypes.TEXT,
+        },
+        age: {
+            type: DataTypes.STRING,
+        },
+        sex: {
+            type: DataTypes.STRING,
+        },
     },
     {
         sequelize,
     }
 );
 
-module.exports = Info;
+module.exports = Character;
