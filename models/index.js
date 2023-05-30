@@ -22,5 +22,7 @@ module.exports = {
     User,
     World,
     Adventure,
-    Info
+    AdventureStep,
+    Info,
+    Character
 }
