@@ -23,7 +23,8 @@ router.post("/", (req, res) => {
     World.create({
         name:req.body.name,
         type:req.body.type,
-        description:req.body.description
+        description:req.body.description,
+        userId:req.body.userId
     }).then(newWorld=>{
         res.json(newWorld)
     }).catch(err=>{
