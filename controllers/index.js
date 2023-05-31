@@ -9,5 +9,7 @@ const loreRoutes = require("./loreRoutes");
 router.use("/api/lores",loreRoutes)
 const adventureRoutes = require("./adventureRoutes");
 router.use("/api/adventures",adventureRoutes)
+const adventureStepRoutes = require("./adventureStepRoutes");
+router.use("/api/adventureSteps",adventureStepRoutes)
 
 module.exports = router;

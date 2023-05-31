@@ -16,6 +16,9 @@ AdventureStep.init(
         option: {
             type: DataTypes.INTEGER,
             allowNull: false,
+        },
+        previous: {
+            type: DataTypes.INTEGER
         }
     },
     {
