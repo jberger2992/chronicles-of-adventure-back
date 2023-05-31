@@ -1,15 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Info extends Model {}
+class Lore extends Model {}
 
-Info.init(
+Lore.init(
     {
         name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        type: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -23,4 +19,4 @@ Info.init(
     }
 );
 
-module.exports = Info;
+module.exports = Lore;
