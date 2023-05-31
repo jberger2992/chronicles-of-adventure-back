@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const {Info} = require('../models');
 //--  /api/infos
 
 // Create a new Info
 router.post("/", (req, res) => {
-    World.create({
+    Info.create({
         name:req.body.name,
         type:req.body.type,
         description:req.body.description,
-        worldId:req.body.worldId
+        WorldId:req.body.WorldId
     }).then(newInfo=>{
         res.json(newInfo)
     }).catch(err=>{

@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
         name:req.body.name,
         type:req.body.type,
         description:req.body.description,
-        userId:req.body.userId
+        UserId:req.body.UserId
     }).then(newWorld=>{
         res.json(newWorld)
     }).catch(err=>{
