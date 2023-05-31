@@ -14,7 +14,7 @@ World.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        desription: {
+        description: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
