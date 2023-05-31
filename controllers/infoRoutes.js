@@ -18,5 +18,21 @@ router.post("/", (req, res) => {
     })
 });
 
+// Delete an Info
+router.delete("/:id",(req,res)=>{
+    Info.destroy({
+        where:{
+            id:req.params.id
+        }
+    }).then(delInfo=>{
+        if(!delInfo){
+            return res.status(404).json({msg:"No Info with this id."})
+        }
+        res.json(delInfo)
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json({msg:"ERROR",err})
+    })
+});
 
 module.exports = router;
