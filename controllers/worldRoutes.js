@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {User,World,Info,Adventure,Character} = require('../models');
+const {User,World,Lore,Adventure,Character,Location,SideCharacter} = require('../models');
 //--  /api/worlds
 
 // Get all Worlds
 router.get("/",(req,res)=>{
     World.findAll({
-        include:[Info,Adventure,Character]
+        include:[Lore,Adventure,Character,Location,SideCharacter]
     }).then(worlds=>{
         if(worlds.length===0){
             return res.status(404).json({msg:"No worlds found."})
@@ -21,7 +21,7 @@ router.get("/",(req,res)=>{
 // Get a specific World by ID
 router.get("/:id",(req,res)=>{
     World.findByPk(req.params.id,{
-        include:[Info,Adventure,Character]
+        include:[Lore,Adventure,Character,Location,SideCharacter]
     }).then(world=>{
         if(!world){
             return res.status(404).json({msg:"No world with that id exists."})
