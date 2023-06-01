@@ -21,8 +21,7 @@ router.get("/",(req,res)=>{
 // Get all Worlds belonging to specific User
 router.get("/user/:id",(req,res)=>{
     World.findAll({
-        include:[User,Lore,Adventure,Character,Location,SideCharacter]
-    },{
+        include:[User,Lore,Adventure,Character,Location,SideCharacter],
         where:{UserId:req.params.id}
     }).then(worlds=>{
         if(worlds.length===0){
