@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Adventure extends Model {}
+class Location extends Model {}
 
-Adventure.init(
+Location.init(
     {
         name: {
             type: DataTypes.STRING,
@@ -13,14 +13,10 @@ Adventure.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        opening: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        }
     },
     {
         sequelize,
     }
 );
 
-module.exports = Adventure;
+module.exports = Location;

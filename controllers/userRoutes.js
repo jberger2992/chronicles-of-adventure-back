@@ -35,4 +35,37 @@ router.post("/", (req, res) => {
     });
 });
 
+// Update a User
+router.put("/:id", (req, res) => {
+    User.update({
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email
+    },{
+        where:{id:req.params.id}
+    })
+    .then((newUser) => {
+        res.json(newUser);
+    })
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({ msg: "ERROR", err });
+    });
+});
+
+//Delete a User by ID
+router.delete("/:id",(req,res)=>{
+    User.destroy({
+        where:{id:req.params.id}
+    }).then(delUser=>{
+        if(!delUser){
+            return res.status(404).json({msg:"No User with this id."})
+        }
+        res.json(delUser)
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json({msg:"ERROR",err})
+    })
+});
+
 module.exports = router;
