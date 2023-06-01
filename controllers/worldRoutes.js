@@ -37,8 +37,7 @@ router.get("/user/:id",(req,res)=>{
 // Get all Worlds of specific type
 router.get("/type/:type",(req,res)=>{
     World.findAll({
-        include:[User,Lore,Adventure,Character,Location,SideCharacter]
-    },{
+        include:[User,Lore,Adventure,Character,Location,SideCharacter],
         where:{type:req.params.type}
     }).then(worlds=>{
         if(worlds.length===0){
