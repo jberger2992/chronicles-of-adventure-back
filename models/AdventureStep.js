@@ -5,6 +5,10 @@ class AdventureStep extends Model {}
 
 AdventureStep.init(
     {
+        response: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         text: {
             type: DataTypes.TEXT,
             allowNull: false,
