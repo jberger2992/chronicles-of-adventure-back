@@ -11,5 +11,11 @@ const adventureRoutes = require("./adventureRoutes");
 router.use("/api/adventures",adventureRoutes)
 const adventureStepRoutes = require("./adventureStepRoutes");
 router.use("/api/adventureSteps",adventureStepRoutes)
+const locationRoutes = require("./locationRoutes");
+router.use("/api/locations",locationRoutes)
+const sideCharacterRoutes = require("./sideCharacterRoutes");
+router.use("/api/sideCharacters",sideCharacterRoutes)
+const characterRoutes = require("./characterRoutes");
+router.use("/api/characters",characterRoutes)
 
 module.exports = router;
