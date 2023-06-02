@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS chronicles_of_adventure_db;
+CREATE DATABASE chronicles_of_adventure_db;
