@@ -5,13 +5,28 @@ const {AdventureStep, Lore} = require('../models');
 
 // Get all AdventureSteps belonging to specific Adventure
 router.get("/adventure/:id",(req,res)=>{
-    Adventure.findAll({
+    AdventureStep.findAll({
         where:{AdventureId:req.params.id}
-    }).then(adventures=>{
-        if(adventures.length===0){
-            return res.status(404).json({msg:"No Adventures found."})
+    }).then(steps=>{
+        if(steps.length===0){
+            return res.status(404).json({msg:"No AdventureSteps found."})
         }
-        res.json(adventures)
+        res.json(steps)
+    }).catch(err=>{
+        console.log(err);
+        res.status(500).json({msg:"ERROR",err})
+    })
+});
+
+// Get all AdventureSteps related to previous steps
+router.get("/previous/:id",(req,res)=>{
+    AdventureStep.findAll({
+        where:{previous:req.params.id}
+    }).then(steps=>{
+        if(steps.length===0){
+            return res.status(404).json({msg:"No AdventureSteps found."})
+        }
+        res.json(steps)
     }).catch(err=>{
         console.log(err);
         res.status(500).json({msg:"ERROR",err})
