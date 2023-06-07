@@ -73,6 +73,7 @@ router.get("/verifytoken",(req,res)=>{
     const token = req.headers.authorization?.split(" ")[1];
     try{
         const data = jwt.verify(token, process.env.JWT_SECRET)
+        console.log(data)
         User.findByPk(data.userId,{
             include:[World]
         }).then(foundUser=>{
