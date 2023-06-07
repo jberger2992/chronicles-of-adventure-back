@@ -51,7 +51,7 @@ router.post("/login", (req, res) => {
     }).then((foundUser) => {
         if(!foundUser){
             return res.status(401).json({msg:"Invalid Username or Password"})
-        } else if(!bcrypt.compareSync(req,body.password,foundUser.password)){
+        } else if(!bcrypt.compareSync(req.body.password,foundUser.password)){
             return res.status(401).json({msg:"Invalid Username or Password"})
         } else{
         const token = jwt.sign({
@@ -80,7 +80,7 @@ router.get("/verifytoken",(req,res)=>{
         });
     } catch (err) {
         console.log(err);
-        res.status(403).json({ msg: "ERROR", err })
+        res.status(403).json({ msg: "Invalid Token", err })
     }
 })
 
