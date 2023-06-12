@@ -65,6 +65,7 @@ router.put("/:id", (req, res) => {
     Location.update({
         name:req.body.name,
         description:req.body.description,
+        WorldId:req.body.WorldId
     },{
         where:{id:req.params.id}
     })

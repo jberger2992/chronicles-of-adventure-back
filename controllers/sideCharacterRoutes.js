@@ -65,6 +65,7 @@ router.put("/:id", (req, res) => {
     SideCharacter.update({
         name:req.body.name,
         description:req.body.description,
+        WorldId:req.body.WorldId
     },{
         where:{id:req.params.id}
     }).then(editSide=>{
