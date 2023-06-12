@@ -83,7 +83,8 @@ router.put("/:id", async (req, res) => {
     try{
         const foundStep = await AdventureStep.update({
             response:req.body.response,
-            text:req.body.text
+            text:req.body.text,
+            previous:req.body.previous
         },{
             where:{id:req.params.id}
         });

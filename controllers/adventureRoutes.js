@@ -67,7 +67,8 @@ router.put("/:id", (req, res) => {
     Adventure.update({
         name:req.body.name,
         description:req.body.description,
-        opening:req.body.opening
+        opening:req.body.opening,
+        WorldId:req.body.WorldId
     },{
         where:{id:req.params.id}
     }).then(editAdv=>{
